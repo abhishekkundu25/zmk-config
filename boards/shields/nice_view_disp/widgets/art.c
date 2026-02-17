@@ -399,8 +399,8 @@ const lv_img_dsc_t mountain = {
 };
 
 
-#ifndef LV_ATTRIBUTE_IMAGE_DEMONS
-#define LV_ATTRIBUTE_IMAGE_DEMONS
+#ifndef LV_ATTRIBUTE_IMG_DEMONS
+#define LV_ATTRIBUTE_IMG_DEMONS
 #endif
 
 
