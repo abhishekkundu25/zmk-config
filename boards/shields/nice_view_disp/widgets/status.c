@@ -26,6 +26,12 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/keymap.h>
 #include <zmk/wpm.h>
 
+#ifdef LV_SYMBOL_BLUETOOTH
+#define BLE_CONNECTED_SYMBOL LV_SYMBOL_BLUETOOTH
+#else
+#define BLE_CONNECTED_SYMBOL "BT"
+#endif
+
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
 struct output_status_state {
@@ -74,7 +80,7 @@ static void draw_top(lv_obj_t *widget, lv_color_t cbuf[], const struct status_st
     case ZMK_TRANSPORT_BLE:
         if (state->active_profile_bonded) {
             if (state->active_profile_connected) {
-                strcat(output_text, LV_SYMBOL_WIFI);
+                strcat(output_text, BLE_CONNECTED_SYMBOL);
             } else {
                 strcat(output_text, LV_SYMBOL_CLOSE);
             }
