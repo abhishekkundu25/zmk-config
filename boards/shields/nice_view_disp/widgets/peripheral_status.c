@@ -23,6 +23,12 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #include "peripheral_status.h"
 
+#ifdef LV_SYMBOL_BLUETOOTH
+#define BLE_CONNECTED_SYMBOL LV_SYMBOL_BLUETOOTH
+#else
+#define BLE_CONNECTED_SYMBOL "BT"
+#endif
+
 LV_IMG_DECLARE(balloon);
 LV_IMG_DECLARE(mountain);
 
@@ -48,7 +54,7 @@ static void draw_top(lv_obj_t *widget, lv_color_t cbuf[], const struct status_st
 
     // Draw output status
     lv_canvas_draw_text(canvas, 0, 0, CANVAS_SIZE, &label_dsc,
-                        state->connected ? LV_SYMBOL_WIFI : LV_SYMBOL_CLOSE);
+                        state->connected ? BLE_CONNECTED_SYMBOL : LV_SYMBOL_CLOSE);
 
     // Rotate canvas
     rotate_canvas(canvas, cbuf);
