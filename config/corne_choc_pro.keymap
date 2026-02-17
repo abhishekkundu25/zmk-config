@@ -30,10 +30,37 @@
 &kp TAB     &kp Q  &kp W  &kp E         &kp R  &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U  &kp I         &kp O    &kp P     &kp BSPC
 &kp ESCAPE  &kp A  &kp S  &kp D         &kp F  &kp G      &kp LALT    &kp RALT  &kp H      &kp J  &kp K         &kp L    &kp SEMI  &kp SQT
 &kp LSHFT   &kp Z  &kp X  &kp C         &kp V  &kp B                            &kp N      &kp M  &kp COMMA     &kp DOT  &kp FSLH  &mt LEFT_SHIFT ENTER
-                          &kp LEFT_ALT  &mo 2  &kp LCTRL                        &kp SPACE  &mo 1  &kp LEFT_GUI
+                          &kp LEFT_ALT  &mo 2  &kp LCTRL                        &kp SPACE  &mo 3  &kp LEFT_GUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
+        };
+
+        layer_9 {
+            display-name = "num";
+            bindings = <
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5   &none  &none  &kp N6    &kp N7         &kp N8       &kp N9     &kp N0  &kp BSPC
+&trans     &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &none  &none  &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT  &trans  &trans
+&trans     &kp F7  &kp F8  &kp F8  &kp F9  &kp F10                &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END    &trans  &trans
+                           &trans  &trans  &trans                 &trans    &trans         &trans
+            >;
+        };
+
+        raise_layer {
+            display-name = "SYMBOL";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
+            // | CTRL |     |     |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |               | ENT |     | ALT |
+
+            bindings = <
+&kp GRAVE  &kp EXCL  &kp AT  &kp HASH              &kp DLLR              &kp PRCNT  &kp LCTRL  &kp RCTRL  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL  &trans    &trans  &kp C_VOLUME_DOWN     &kp C_VOLUME_UP       &trans     &kp LALT   &kp RALT   &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT  &trans    &trans  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans                           &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+                             &trans                &trans                &trans                           &trans     &trans     &trans
+            >;
         };
 
         lower_layer {
@@ -53,25 +80,18 @@
             >;
         };
 
-        raise_layer {
-            display-name = "SYMBOL";
-
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
-            // | CTRL |     |     |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |               | ENT |     | ALT |
-
+        extra_layer_1 {
+            display-name = "System";
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp LCTRL  &kp RCTRL  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans     &kp LALT   &kp RALT   &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans                           &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE                        &kp RET    &trans     &kp RALT
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
             >;
         };
 
-        extra_layer_1 {
-            display-name = "EXTRA 1";
+        extra_layer_6 {
+            display-name = "EXTRA 6";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -81,12 +101,12 @@
         };
 
         extra_layer_2 {
-            display-name = "EXTRA 2";
+            display-name = "Numpad";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &kp N7        &kp N8        &kp N9        &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PLUS   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &kp MINUS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+                        &trans  &trans  &trans                  &trans     &kp NUMBER_0  &trans
             >;
         };
 
@@ -112,16 +132,6 @@
 
         extra_layer_5 {
             display-name = "EXTRA 5";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                  &trans  &trans  &trans
-            >;
-        };
-
-        extra_layer_6 {
-            display-name = "EXTRA 6";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
