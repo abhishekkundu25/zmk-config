@@ -37,6 +37,12 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #define BLE_CONNECTED_SYMBOL "BT"
 #endif
 
+#ifdef LV_SYMBOL_BLUETOOTH
+#define BLE_CONNECTED_SYMBOL LV_SYMBOL_BLUETOOTH
+#else
+#define BLE_CONNECTED_SYMBOL "BT"
+#endif
+
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 static uint32_t last_keypress_render_ms;
 static bool has_last_keypress_render;
